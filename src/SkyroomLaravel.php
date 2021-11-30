@@ -15,6 +15,43 @@ class SkyroomLaravel
         $this->api = new Skyroom($apiUrl);
     }
 
+    public function getServiceStatuses() {
+        return [
+            'inactive' => 0,
+            'active' => 1,
+        ];
+    }
+
+    public function getToomStatuses() {
+        return [
+            'inactive' => 0,
+            'active' => 1,
+        ];
+    }
+
+    public function getUserStatuses() {
+        return [
+            'inactive' => 0,
+            'active' => 1,
+        ];
+    }
+
+    public function getUserGenders() {
+        return [
+            'unknown' => 0,
+            'male' => 1,
+            'female' => 2,
+        ];
+    }
+
+    public function getRoomAccesses() {
+        return [
+            'normal' => 1,
+            'instructor' => 2,
+            'operator' => 3,
+        ];
+    }
+
     private function _getMessage($action, $params)
     {
         try {

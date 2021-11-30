@@ -125,13 +125,14 @@ class SkyroomLaravel
         return $this->_getMessage('getRoomUrl', $params);
     }
 
-    public function createRoom($name, $title, $maxUsers, $guestLogin = true)
+    public function createRoom($name, $title, $guestLogin = true, $opLoginFirst = false, $maxUsers = 30)
     {
         $params = array(
             'name' => $name,
             'title' => $title,
-            'max_users' => $maxUsers,
             'guest_login' => $guestLogin,
+            'op_login_first' => $opLoginFirst,
+            'max_users' => $maxUsers,
         );
 
         return $this->_getMessage('createRoom', $params);

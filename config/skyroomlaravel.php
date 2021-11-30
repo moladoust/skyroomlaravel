@@ -2,5 +2,5 @@
 
 return [
     'api_url' => 'https://www.skyroom.online/skyroom/api/your-api-key',
-    'language' => '', // fa , ...
+    'language' => 'fa', // fa / en
 ];

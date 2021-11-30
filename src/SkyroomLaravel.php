@@ -20,9 +20,14 @@ class SkyroomLaravel
         try {
             $result = $this->api->call($action, $params);
 
-            if ($result['ok']) {
-                //
-            } else {
+            if (HttpError::IsError($result)) {
+                return [
+                    'status' => 'error',
+                    'message' => $result->getMessage(),
+                    'code' => $result->getCode(),
+                    // 'data' => $result['result'],
+                ];
+            } elseif (!$result['ok']) {
                 return [
                     'status' => 'error',
                     // 'message' => $result->getMessage(),
@@ -30,29 +35,19 @@ class SkyroomLaravel
                     'message' => $result['error_message'],
                     'code' => $result['error_code'],
                 ];
+            } else {
+                return [
+                    'status' => 'success',
+                    // 'message' => $result->getMessage(),
+                    // 'code' => $result->getCode(),
+                    'data' => $result['result'],
+                ];
             }
-
         } catch (\Exception $e) {
             return [
                 'status' => 'error',
                 'message' => $e->getMessage(),
                 'code' => $e->getCode(),
-            ];
-        }
-
-        if (HttpError::IsError($result)) {
-            return [
-                'status' => 'error',
-                'message' => $result->getMessage(),
-                'code' => $result->getCode(),
-                'data' => $result['result'],
-            ];
-        } else {
-            return [
-                'status' => 'success',
-                'message' => $result->getMessage(),
-                'code' => $result->getCode(),
-                'data' => $result['result'],
             ];
         }
     }
@@ -171,7 +166,6 @@ class SkyroomLaravel
     public function getUsers()
     {
         return $this->_getMessage('getRoomUrl', []);
-
     }
 
     public function countUsers()

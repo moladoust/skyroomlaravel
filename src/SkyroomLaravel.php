@@ -138,7 +138,21 @@ class SkyroomLaravel
         return $this->_getMessage('createRoom', $params);
     }
 
-    public function updateRoom($roomId, $timeLimit, $sessionDuration)
+    public function updateRoom($roomId, $name, $title, $guestLogin, $opLoginFirst, $maxUsers)
+    {
+        $params = array(
+            'room_id' => $roomId,
+            'name' => $name,
+            'title' => $title,
+            'guest_login' => $guestLogin,
+            'op_login_first' => $opLoginFirst,
+            'max_users' => $maxUsers,
+        );
+
+        return $this->_getMessage('updateRoom', $params);
+    }
+
+   /*  public function updateRoom00($roomId, $timeLimit, $sessionDuration)
     {
         $params = array(
             'room_id' => $roomId,
@@ -147,7 +161,7 @@ class SkyroomLaravel
         );
 
         return $this->_getMessage('updateRoom', $params);
-    }
+    } */
 
     public function deleteRoom($roomId)
     {

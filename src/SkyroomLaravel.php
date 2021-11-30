@@ -22,7 +22,7 @@ class SkyroomLaravel
         ];
     }
 
-    public function getToomStatuses() {
+    public function getRoomStatuses() {
         return [
             'inactive' => 0,
             'active' => 1,
@@ -249,11 +249,9 @@ class SkyroomLaravel
         return $this->_getMessage('createUser', $params);
     }
 
-    public function updateUser($userId)
+    public function updateUser($userId, array $params)
     {
-        $params = array(
-            'user_id' => $userId,
-        );
+        $params = array_merge(['user_id' => $userId], $params);
 
         return $this->_getMessage('updateUser', $params);
     }

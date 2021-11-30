@@ -114,12 +114,12 @@ class SkyroomLaravel
         return $this->_getMessage('getRoom', $params);
     }
 
-    public function getRoomUrl($roomId, $relative = true, $language = 'fa')
+    public function getRoomUrl($roomId, $relative = true, $language = null)
     {
         $params = array(
             'room_id' => $roomId,
             'relative' => $relative,
-            'language' => $language,
+            'language' => $language ?: config('skyroom.language'),
         );
 
         return $this->_getMessage('getRoomUrl', $params);
@@ -284,19 +284,19 @@ class SkyroomLaravel
         return $this->_getMessage('removeUserRooms', $params);
     }
 
-    public function getLoginUrl($roomId, $userId, $language = 'fa', $ttl = 60)
+    public function getLoginUrl($roomId, $userId, $language = null, $ttl = 60)
     {
         $params = array(
             'room_id' => $roomId,
             'user_id' => $userId,
-            'language' => $language,
+            'language' => $language ?: config('skyroom.language'),
             'ttl' => $ttl,
         );
 
         return $this->_getMessage('getLoginUrl', $params);
     }
 
-    public function createLoginUrl($roomId, $userId, $nickname, $access, $concurrent, $ttl, $language = 'fa')
+    public function createLoginUrl($roomId, $userId, $nickname, $access, $concurrent, $ttl, $language = null)
     {
         $params = array(
             'room_id' => $roomId,
@@ -305,7 +305,7 @@ class SkyroomLaravel
             'access' => $access,
             'concurrent' => $concurrent,
             'ttl' => $ttl,
-            'language' => $language,
+            'language' => $language ?: config('skyroom.language'),
         );
 
         return $this->_getMessage('createLoginUrl', $params);

@@ -134,7 +134,7 @@ class SkyroomLaravel
             'guest_login' => $guestLogin,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('createRoom', $params);
     }
 
     public function updateRoom($roomId, $timeLimit, $sessionDuration)
@@ -145,7 +145,7 @@ class SkyroomLaravel
             'session_duration' => $sessionDuration,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('updateRoom', $params);
     }
 
     public function deleteRoom($roomId)
@@ -154,7 +154,7 @@ class SkyroomLaravel
             'room_id' => $roomId,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('deleteRoom', $params);
     }
 
     public function getRoomUsers($roomId)
@@ -163,7 +163,7 @@ class SkyroomLaravel
             'room_id' => $roomId,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('getRoomUsers', $params);
     }
 
     /**
@@ -176,7 +176,7 @@ class SkyroomLaravel
             'users' => $users,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('addRoomUsers', $params);
     }
 
     public function removeRoomUsers($roomId, array $usersId)
@@ -186,7 +186,7 @@ class SkyroomLaravel
             'users' => $usersId,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('removeRoomUsers', $params);
     }
 
     public function updateRoomUser($roomId, $userId, $newAccess)
@@ -197,17 +197,17 @@ class SkyroomLaravel
             'access' => $newAccess,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('updateRoomUser', $params);
     }
 
     public function getUsers()
     {
-        return $this->_getMessage('getRoomUrl', []);
+        return $this->_getMessage('getUsers', []);
     }
 
     public function countUsers()
     {
-        return $this->_getMessage('getRoomUrl', []);
+        return $this->_getMessage('countUsers', []);
     }
 
     public function getUser($userId)
@@ -216,7 +216,7 @@ class SkyroomLaravel
             'user_id' => $userId,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('getUser', $params);
     }
 
     public function createUser($username, $nickname, $password, $email, $fname, $lname, $isPublic = true)
@@ -231,7 +231,7 @@ class SkyroomLaravel
             'is_public' => $isPublic,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('createUser', $params);
     }
 
     public function updateUser($userId)
@@ -240,7 +240,7 @@ class SkyroomLaravel
             'user_id' => $userId,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('updateUser', $params);
     }
 
     public function deleteUser($userId)
@@ -249,7 +249,7 @@ class SkyroomLaravel
             'user_id' => $userId,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('deleteUser', $params);
     }
 
     public function getUserRooms($userId)
@@ -258,7 +258,7 @@ class SkyroomLaravel
             'user_id' => $userId,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('getUserRooms', $params);
     }
 
     /**
@@ -271,7 +271,7 @@ class SkyroomLaravel
             'rooms' => $rooms,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('addUserRooms', $params);
     }
 
     public function removeUserRooms($userId, array $roomsId)
@@ -281,7 +281,7 @@ class SkyroomLaravel
             'rooms' => $roomsId,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('removeUserRooms', $params);
     }
 
     public function getLoginUrl($roomId, $userId, $language = 'fa', $ttl = 60)
@@ -293,7 +293,7 @@ class SkyroomLaravel
             'ttl' => $ttl,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('getLoginUrl', $params);
     }
 
     public function createLoginUrl($roomId, $userId, $nickname, $access, $concurrent, $ttl, $language = 'fa')
@@ -308,6 +308,6 @@ class SkyroomLaravel
             'language' => $language,
         );
 
-        return $this->_getMessage('getRoomUrl', $params);
+        return $this->_getMessage('createLoginUrl', $params);
     }
 }

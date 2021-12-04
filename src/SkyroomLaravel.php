@@ -114,6 +114,14 @@ class SkyroomLaravel
         return $this->_getMessage('getRoom', $params);
     }
 
+    public function getRoomByName($roomName)
+    {
+        $params = array(
+            'name' => $roomName,
+        );
+        return $this->_getMessage('getRoom', $params);
+    }
+
     public function getRoomUrl($roomId, $relative = false, $language = null)
     {
         $params = array(

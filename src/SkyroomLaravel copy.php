@@ -91,11 +91,6 @@ class SkyroomLaravel
 
     /////
 
-    public function callRequest($action, $params)
-    {
-        return $this->_getMessage($action, $params);
-    }
-
     public function getServices()
     {
         return $this->_getMessage('getServices', []);
